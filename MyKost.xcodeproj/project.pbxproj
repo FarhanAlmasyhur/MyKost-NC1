@@ -14,7 +14,11 @@
 		D4C9270F28192BAA0002CE24 /* MyKost.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4C9270D28192BAA0002CE24 /* MyKost.xcdatamodeld */; };
 		D4C9271128192BAB0002CE24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4C9271028192BAB0002CE24 /* Assets.xcassets */; };
 		D4C9271428192BAB0002CE24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C9271228192BAB0002CE24 /* LaunchScreen.storyboard */; };
-		D4C927212819349D0002CE24 /* Penyewa.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C927202819349D0002CE24 /* Penyewa.swift */; };
+		D4C927212819349D0002CE24 /* Penghuni.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C927202819349D0002CE24 /* Penghuni.swift */; };
+		D4C9272328198B2D0002CE24 /* Kamar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9272228198B2D0002CE24 /* Kamar.swift */; };
+		D4C9272528198CA80002CE24 /* PenghuniNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9272428198CA80002CE24 /* PenghuniNull.swift */; };
+		D4C9272728198D530002CE24 /* PenghuniAsli.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9272628198D530002CE24 /* PenghuniAsli.swift */; };
+		D4C927292819A0BD0002CE24 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C927282819A0BD0002CE24 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +32,11 @@
 		D4C9271328192BAB0002CE24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4C9271528192BAB0002CE24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4C9271F28192E530002CE24 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
-		D4C927202819349D0002CE24 /* Penyewa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Penyewa.swift; sourceTree = "<group>"; };
+		D4C927202819349D0002CE24 /* Penghuni.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Penghuni.swift; sourceTree = "<group>"; };
+		D4C9272228198B2D0002CE24 /* Kamar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kamar.swift; sourceTree = "<group>"; };
+		D4C9272428198CA80002CE24 /* PenghuniNull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenghuniNull.swift; sourceTree = "<group>"; };
+		D4C9272628198D530002CE24 /* PenghuniAsli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenghuniAsli.swift; sourceTree = "<group>"; };
+		D4C927282819A0BD0002CE24 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +85,10 @@
 		D4C9271B28192BE20002CE24 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D4C927202819349D0002CE24 /* Penyewa.swift */,
+				D4C927202819349D0002CE24 /* Penghuni.swift */,
+				D4C9272228198B2D0002CE24 /* Kamar.swift */,
+				D4C9272428198CA80002CE24 /* PenghuniNull.swift */,
+				D4C9272628198D530002CE24 /* PenghuniAsli.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -95,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				D4C9270828192BAA0002CE24 /* ListViewController.swift */,
+				D4C927282819A0BD0002CE24 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -178,11 +190,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4C927292819A0BD0002CE24 /* DetailViewController.swift in Sources */,
 				D4C9270928192BAA0002CE24 /* ListViewController.swift in Sources */,
 				D4C9270528192BAA0002CE24 /* AppDelegate.swift in Sources */,
+				D4C9272328198B2D0002CE24 /* Kamar.swift in Sources */,
 				D4C9270F28192BAA0002CE24 /* MyKost.xcdatamodeld in Sources */,
+				D4C9272728198D530002CE24 /* PenghuniAsli.swift in Sources */,
 				D4C9270728192BAA0002CE24 /* SceneDelegate.swift in Sources */,
-				D4C927212819349D0002CE24 /* Penyewa.swift in Sources */,
+				D4C927212819349D0002CE24 /* Penghuni.swift in Sources */,
+				D4C9272528198CA80002CE24 /* PenghuniNull.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

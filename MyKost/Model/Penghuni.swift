@@ -8,12 +8,11 @@
 import Foundation
 import UIKit
 
-struct Penyewa {
-    var nama: String
-    var tanggalLahir: Date
-    var tanggalMasuk: Date
-    var harga: Int64
-    var nomorKamar: Int
+protocol Penghuni {
+    var nama: String { get }
+    var tanggalLahir: Date { get }
+    var tanggalMasuk: Date { get }
+    var harga: Int64 { get }
 //    var fotoProfil: UIImage
 //    var fotoKTP: UIImage
 //    var fotoKontrak: UIImage

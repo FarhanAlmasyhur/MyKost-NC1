@@ -12,14 +12,28 @@ class ListViewController: UIViewController {
     @IBOutlet weak var tableViewOutlet: UITableView!
     
     
-    var listKamar: [Penyewa] = []
+    var listKamarBawah: [Kamar] = []
+    var listKamarAtas: [Kamar] = []
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        listKamar.append(Penyewa(nama: "Farhan", tanggalLahir: Date.now, tanggalMasuk: Date.now, harga: 8000000, nomorKamar: 0))
-        listKamar.append(Penyewa(nama: "Farhan", tanggalLahir: Date.now, tanggalMasuk: Date.now, harga: 5000000, nomorKamar: 1))
-        listKamar.append(Penyewa(nama: "Farhan", tanggalLahir: Date.now, tanggalMasuk: Date.now, harga: 6000000, nomorKamar: 2))
+        // Check if there is no data in CoreData
+        if listKamarBawah.isEmpty{
+            for i in 0...5{
+                listKamarBawah.append(Kamar(noKamar: i))
+            }
+        }
+        if listKamarAtas.isEmpty{
+            for i in 6...11{
+                listKamarAtas.append(Kamar(noKamar: i))
+            }
+        }
+        
+        
+        
         // Do any additional setup after loading the view.
         
         
@@ -33,7 +47,7 @@ class ListViewController: UIViewController {
 
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listKamar.count
+        return listKamarAtas.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,7 +58,13 @@ extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "PenyewaCell", for: indexPath)
-        cell.textLabel?.text = "Kamar No.\(listKamar[indexPath.row].nomorKamar)"
+        var cellContent = cell.defaultContentConfiguration()
+        if indexPath.section == 0 {
+            cellContent.text = "Kamar No. \(listKamarBawah[indexPath.row].noKamar)"
+        } else {
+            cellContent.text = "Kamar No. \(listKamarAtas[indexPath.row].noKamar)"
+        }
+        cell.contentConfiguration = cellContent
         return cell
     }
     
@@ -63,6 +83,13 @@ extension ListViewController: UITableViewDataSource {
 extension ListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "detailView") as? DetailViewController else {return}
+        if indexPath.section == 0 {
+            vc.title = "Kamar No. \(listKamarBawah[indexPath.row].noKamar)"
+            
+        } else {
+            vc.title = "Kamar No. \(listKamarAtas[indexPath.row].noKamar)"
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
