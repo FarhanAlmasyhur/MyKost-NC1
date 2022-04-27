@@ -14,8 +14,8 @@ struct Penyewa {
     var tanggalMasuk: Date
     var harga: Int64
     var nomorKamar: Int
-    var fotoProfil: UIImage
-    var fotoKTP: UIImage
-    var fotoKontrak: UIImage
+//    var fotoProfil: UIImage
+//    var fotoKTP: UIImage
+//    var fotoKontrak: UIImage
 }
 
