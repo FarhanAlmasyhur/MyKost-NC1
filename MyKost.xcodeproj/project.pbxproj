@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D441E409281A85C5003D4902 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4C9271F28192E530002CE24 /* SF-Pro.ttf */; };
+		D441E40D281A9170003D4902 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D441E40C281A9170003D4902 /* EditViewController.swift */; };
 		D4C9270528192BAA0002CE24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9270428192BAA0002CE24 /* AppDelegate.swift */; };
 		D4C9270728192BAA0002CE24 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9270628192BAA0002CE24 /* SceneDelegate.swift */; };
 		D4C9270928192BAA0002CE24 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9270828192BAA0002CE24 /* ListViewController.swift */; };
@@ -19,9 +21,11 @@
 		D4C9272528198CA80002CE24 /* PenghuniNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9272428198CA80002CE24 /* PenghuniNull.swift */; };
 		D4C9272728198D530002CE24 /* PenghuniAsli.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9272628198D530002CE24 /* PenghuniAsli.swift */; };
 		D4C927292819A0BD0002CE24 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C927282819A0BD0002CE24 /* DetailViewController.swift */; };
+		D4C9272B281A4C2A0002CE24 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9272A281A4C2A0002CE24 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D441E40C281A9170003D4902 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		D4C9270128192BAA0002CE24 /* MyKost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyKost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C9270428192BAA0002CE24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4C9270628192BAA0002CE24 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +41,7 @@
 		D4C9272428198CA80002CE24 /* PenghuniNull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenghuniNull.swift; sourceTree = "<group>"; };
 		D4C9272628198D530002CE24 /* PenghuniAsli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenghuniAsli.swift; sourceTree = "<group>"; };
 		D4C927282819A0BD0002CE24 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D4C9272A281A4C2A0002CE24 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +83,7 @@
 				D4C9271028192BAB0002CE24 /* Assets.xcassets */,
 				D4C9271528192BAB0002CE24 /* Info.plist */,
 				D4C9270D28192BAA0002CE24 /* MyKost.xcdatamodeld */,
+				D4C9272A281A4C2A0002CE24 /* Extension.swift */,
 			);
 			path = MyKost;
 			sourceTree = "<group>";
@@ -107,6 +113,7 @@
 			children = (
 				D4C9270828192BAA0002CE24 /* ListViewController.swift */,
 				D4C927282819A0BD0002CE24 /* DetailViewController.swift */,
+				D441E40C281A9170003D4902 /* EditViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -178,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4C9271428192BAB0002CE24 /* LaunchScreen.storyboard in Resources */,
+				D441E409281A85C5003D4902 /* SF-Pro.ttf in Resources */,
 				D4C9271128192BAB0002CE24 /* Assets.xcassets in Resources */,
 				D4C9270C28192BAA0002CE24 /* Main.storyboard in Resources */,
 			);
@@ -195,9 +203,11 @@
 				D4C9270528192BAA0002CE24 /* AppDelegate.swift in Sources */,
 				D4C9272328198B2D0002CE24 /* Kamar.swift in Sources */,
 				D4C9270F28192BAA0002CE24 /* MyKost.xcdatamodeld in Sources */,
+				D4C9272B281A4C2A0002CE24 /* Extension.swift in Sources */,
 				D4C9272728198D530002CE24 /* PenghuniAsli.swift in Sources */,
 				D4C9270728192BAA0002CE24 /* SceneDelegate.swift in Sources */,
 				D4C927212819349D0002CE24 /* Penghuni.swift in Sources */,
+				D441E40D281A9170003D4902 /* EditViewController.swift in Sources */,
 				D4C9272528198CA80002CE24 /* PenghuniNull.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

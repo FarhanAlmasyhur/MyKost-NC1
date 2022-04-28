@@ -14,13 +14,17 @@ class ListViewController: UIViewController {
     
     var listKamarBawah: [Kamar] = []
     var listKamarAtas: [Kamar] = []
-    
-    
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // TO:DO Read List from Core Data
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Check if there is no data in CoreData
+        // Check if there is no data in Database
         if listKamarBawah.isEmpty{
             for i in 0...5{
                 listKamarBawah.append(Kamar(noKamar: i))
@@ -86,9 +90,11 @@ extension ListViewController: UITableViewDelegate {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "detailView") as? DetailViewController else {return}
         if indexPath.section == 0 {
             vc.title = "Kamar No. \(listKamarBawah[indexPath.row].noKamar)"
+            vc.kamarPenghuni = listKamarBawah[indexPath.row]
             
         } else {
             vc.title = "Kamar No. \(listKamarAtas[indexPath.row].noKamar)"
+            vc.kamarPenghuni = listKamarAtas[indexPath.row]
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
