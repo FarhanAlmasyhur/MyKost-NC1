@@ -14,7 +14,7 @@ protocol Penghuni {
     var tanggalMasuk: Date { get }
     var harga: Int32 { get }
     var fotoProfil: UIImage { get }
-//    var fotoKTP: UIImage
-//    var fotoKontrak: UIImage
+    var fotoKTP: UIImage { get }
+    var fotoKontrak: UIImage { get }
 }
 

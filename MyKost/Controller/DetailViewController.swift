@@ -47,7 +47,8 @@ class DetailViewController: UIViewController {
     }
     
     @objc func editDetail() {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "editView") else { return }
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "editView") as? EditViewController else { return }
+        vc.kamar = kamarPenghuni
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

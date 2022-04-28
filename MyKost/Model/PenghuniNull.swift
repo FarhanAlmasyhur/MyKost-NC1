@@ -14,4 +14,6 @@ struct PenghuniNull: Penghuni{
     let tanggalMasuk: Date = Date.now
     let harga: Int32 = 25000000
     let fotoProfil: UIImage = UIImage(named: "defaultProfileImage") ?? UIImage(systemName: "person.crop.rectangle")!
+    let fotoKTP: UIImage = UIImage(named: "defaultProfileImage") ?? UIImage(systemName: "person.crop.rectangle")!
+    let fotoKontrak: UIImage = UIImage(named: "defaultProfileImage") ?? UIImage(systemName: "person.crop.rectangle")!
 }

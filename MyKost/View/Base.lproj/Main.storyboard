@@ -172,15 +172,87 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bDv-4n-0MN">
+                                <rect key="frame" x="16" y="230.33333333333334" width="358" height="74.333333333333343"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal Masuk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOt-9y-R3Z">
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oGC-YP-7fd">
+                                        <rect key="frame" x="0.0" y="40.333333333333343" width="358" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4yc-ID-DN1">
+                                <rect key="frame" x="16" y="334.66666666666669" width="358" height="74.333333333333314"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Harga" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mep-wc-1oc">
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rjH-oJ-7Lf">
+                                        <rect key="frame" x="0.0" y="40.333333333333314" width="358" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neF-jR-rx6">
+                                <rect key="frame" x="74" y="560" width="76" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="KTP"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="On0-wn-4K5">
+                                <rect key="frame" x="157" y="623" width="76" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Foto"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55d-T0-eRt">
+                                <rect key="frame" x="150" y="698" width="90" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Submit">
+                                    <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIM-9z-VjA">
+                                <rect key="frame" x="236" y="560" width="90" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Kontrak"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="r5z-M5-Imf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="bDv-4n-0MN" firstAttribute="top" secondItem="Bgl-en-DBM" secondAttribute="bottom" constant="32" id="0sv-sb-wfw"/>
+                            <constraint firstItem="4yc-ID-DN1" firstAttribute="leading" secondItem="r5z-M5-Imf" secondAttribute="leading" constant="16" id="2xh-DY-ZfK"/>
                             <constraint firstItem="Bgl-en-DBM" firstAttribute="top" secondItem="r5z-M5-Imf" secondAttribute="top" constant="80" id="9Vc-Tk-2Of"/>
+                            <constraint firstItem="r5z-M5-Imf" firstAttribute="trailing" secondItem="4yc-ID-DN1" secondAttribute="trailing" constant="16" id="AY6-ZG-JoA"/>
+                            <constraint firstItem="bDv-4n-0MN" firstAttribute="leading" secondItem="r5z-M5-Imf" secondAttribute="leading" constant="16" id="cgS-sV-lJx"/>
+                            <constraint firstItem="4yc-ID-DN1" firstAttribute="top" secondItem="bDv-4n-0MN" secondAttribute="bottom" constant="30" id="h3h-76-chH"/>
                             <constraint firstItem="r5z-M5-Imf" firstAttribute="trailing" secondItem="Bgl-en-DBM" secondAttribute="trailing" constant="16" id="jwN-vU-yaS"/>
                             <constraint firstItem="Bgl-en-DBM" firstAttribute="leading" secondItem="r5z-M5-Imf" secondAttribute="leading" constant="16" id="kPz-Mr-DWd"/>
+                            <constraint firstItem="r5z-M5-Imf" firstAttribute="trailing" secondItem="bDv-4n-0MN" secondAttribute="trailing" constant="16" id="qZN-de-x9M"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="hargaTextFieldOutlet" destination="rjH-oJ-7Lf" id="Ba3-oe-tb9"/>
+                        <outlet property="inputFotoOutlet" destination="On0-wn-4K5" id="43C-df-Hrm"/>
+                        <outlet property="inputKTPOutlet" destination="neF-jR-rx6" id="LHY-g3-0W9"/>
+                        <outlet property="inputKontrakOutlet" destination="sIM-9z-VjA" id="Hsc-hX-Km9"/>
+                        <outlet property="nameTextFieldOutlet" destination="xXY-36-Tm7" id="HZn-80-yRt"/>
+                        <outlet property="tanggalMasukTextFieldOutlet" destination="oGC-YP-7fd" id="HNz-Ee-PaH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="taT-FF-QwJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -209,6 +281,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
