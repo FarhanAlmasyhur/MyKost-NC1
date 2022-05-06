@@ -6,43 +6,67 @@
 //
 
 import UIKit
+import CoreData
 
 class ListViewController: UIViewController {
     
     @IBOutlet weak var tableViewOutlet: UITableView!
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    var listKamar: [Kamar]?
     
     var listKamarBawah: [Kamar] = []
     var listKamarAtas: [Kamar] = []
 
     
     override func viewWillAppear(_ animated: Bool) {
-        // TO:DO Read List from Core Data
+        // Check dummy data, if there is none, create it
+        if UserDefaults.standard.bool(forKey: "dummyDataAdded") == false {
+            saveDummyData()
+        }
+        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Check if there is no data in Database
-        if listKamarBawah.isEmpty{
-            for i in 0...5{
-                listKamarBawah.append(Kamar(noKamar: i))
+        // read from database
+        fetchData()
+        
+        guard let listKamar = listKamar else {
+            return
+        }
+
+        for kamar in listKamar {
+            if(kamar.noKamar <= 5){
+                listKamarBawah.append(kamar)
+            } else {
+                listKamarAtas.append(kamar)
             }
         }
-        if listKamarAtas.isEmpty{
-            for i in 6...11{
-                listKamarAtas.append(Kamar(noKamar: i))
-            }
-        }
-        
-        
-        
-        // Do any additional setup after loading the view.
-        
         
         tableViewOutlet.dataSource = self
         tableViewOutlet.delegate = self
+    }
+    
+    func fetchData(){
+        do{
+            let request = Kamar.fetchRequest() as NSFetchRequest<Kamar>
+            
+            // sort by no.kamar
+            let sort = NSSortDescriptor(key: "noKamar", ascending: true)
+            
+            request.sortDescriptors = [sort]
+            
+            self.listKamar = try context.fetch(request)
+            DispatchQueue.main.async {
+                self.tableViewOutlet.reloadData()
+            }
+        } catch {
+            print("Error fetching data")
+        }
+        
     }
 
     
@@ -51,7 +75,7 @@ class ListViewController: UIViewController {
 
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listKamarAtas.count
+        return listKamarBawah.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

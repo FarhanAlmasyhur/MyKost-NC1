@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Kamar" representedClassName="Kamar" syncable="YES">
+        <attribute name="noKamar" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="penghuni" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Penghuni" inverseName="kamar" inverseEntity="Penghuni"/>
+    </entity>
+    <entity name="Penghuni" representedClassName="Penghuni" syncable="YES">
+        <attribute name="fotoKontrak" optional="YES" attributeType="Binary"/>
+        <attribute name="fotoKTP" optional="YES" attributeType="Binary"/>
+        <attribute name="fotoProfil" optional="YES" attributeType="Binary"/>
+        <attribute name="harga" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="nama" optional="YES" attributeType="String"/>
+        <attribute name="tanggalMasuk" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="kamar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Kamar" inverseName="penghuni" inverseEntity="Kamar"/>
+    </entity>
+    <elements>
+        <element name="Penghuni" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="Kamar" positionX="-54" positionY="36" width="128" height="59"/>
+    </elements>
 </model>

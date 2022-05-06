@@ -22,17 +22,35 @@ class EditViewController: UIViewController {
     var checkButton = ""
     var kamar: Kamar?
     
+    var newImageKTP = UIImage()
+    var newImageKontrak = UIImage()
+    var newImageProfile = UIImage()
+    var newName = String()
+    var newTanggalMasuk = Date()
+    var newHarga = Int32()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        guard let kamarLama = kamar else { return }
+//        newImageKTP = kamarLama.penghuni.fotoKTP
+//        newImageKontrak = kamarLama.penghuni.fotoKontrak
+//        newImageProfile = kamarLama.penghuni.fotoProfil
+//        newName = kamarLama.penghuni.nama
+//        newTanggalMasuk = kamarLama.penghuni.tanggalMasuk
+//        newHarga = kamarLama.penghuni.harga
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(self.backToDetail(_:)))
-        inputKTPOutlet.addTarget(self, action: #selector(inputAction(_:)), for: .touchDown)
-        inputKontrakOutlet.addTarget(self, action: #selector(inputAction(_:)), for: .touchDown)
-        inputFotoOutlet.addTarget(self, action: #selector(inputAction(_:)), for: .touchDown)
+        inputKTPOutlet.addTarget(self, action: #selector(inputImageAction(_:)), for: .touchDown)
+        inputKontrakOutlet.addTarget(self, action: #selector(inputImageAction(_:)), for: .touchDown)
+        inputFotoOutlet.addTarget(self, action: #selector(inputImageAction(_:)), for: .touchDown)
         
         if let kamarPenghuni = kamar {
-            nameTextFieldOutlet.text = kamarPenghuni.penghuni.nama
-            tanggalMasukTextFieldOutlet.text = dateToString(kamarPenghuni.penghuni.tanggalMasuk)
-            hargaTextFieldOutlet.text = String(kamarPenghuni.penghuni.harga)
+//            nameTextFieldOutlet.text = kamarPenghuni.penghuni.nama
+//            tanggalMasukTextFieldOutlet.text = dateToString(kamarPenghuni.penghuni.tanggalMasuk)
+//            hargaTextFieldOutlet.text = String(kamarPenghuni.penghuni.harga)
         }
         
         // Change Tanggal Outlet to DateInput
@@ -65,7 +83,7 @@ class EditViewController: UIViewController {
         return dateFormatter.string(from: date)
     }
     
-    @objc func inputAction(_ sender: UIButton){
+    @objc func inputImageAction(_ sender: UIButton){
         guard let buttonPressed = sender.titleLabel else { return }
         checkButton = buttonPressed.text ?? ""
         var photoConfig = PHPickerConfiguration()
@@ -74,6 +92,17 @@ class EditViewController: UIViewController {
         let photoVC = PHPickerViewController(configuration: photoConfig)
         photoVC.delegate = self
         present(photoVC, animated: true)
+    }
+    
+    @objc func submitAction(_ sender: UIButton){
+        
+        newName = nameTextFieldOutlet.text ?? ""
+        newHarga = Int32(hargaTextFieldOutlet.text ?? "0") ?? 0
+//
+//        let penghuni = PenghuniAsli(nama: newName, tanggalMasuk: newTanggalMasuk, harga: newHarga, fotoProfil: newImageProfile, fotoKTP: newImageKTP, fotoKontrak: newImageKontrak)
+//
+//        kamar?.penghuni = penghuni
+        
     }
     
     
@@ -92,10 +121,11 @@ extension EditViewController: PHPickerViewControllerDelegate {
             itemProvider.loadObject(ofClass: UIImage.self) {  image, error in
                 if let image = image {
                     if self.checkButton == "KTP"{
-                        kamar?.penghuni.fotoKTP = image as! UIImage
+                        self.newImageKTP = image as? UIImage ?? UIImage(systemName: "person.fill")!
                     } else if self.checkButton == "Kontrak" {
-                        
+                        self.newImageKontrak = image as? UIImage ?? UIImage(systemName: "person.fill")!
                     } else {
+                        self.newImageProfile = image as? UIImage ?? UIImage(systemName: "person.fill")!
                         
                     }
                 }

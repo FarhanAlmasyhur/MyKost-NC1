@@ -23,10 +23,10 @@ class DetailViewController: UIViewController {
         imageOutlet.roundedCorners()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editDetail))
         if let kamarPenghuniObject = kamarPenghuni {
-            imageOutlet.image = kamarPenghuniObject.penghuni.fotoProfil
-            detailArray.append(kamarPenghuniObject.penghuni.nama)
-            detailArray.append(formatDate(kamarPenghuniObject.penghuni.tanggalMasuk))
-            detailArray.append(changePriceToCurrency(kamarPenghuniObject.penghuni.harga))
+//            imageOutlet.image = kamarPenghuniObject.penghuni.fotoProfil
+//            detailArray.append(kamarPenghuniObject.penghuni.nama)
+//            detailArray.append(formatDate(kamarPenghuniObject.penghuni.tanggalMasuk))
+//            detailArray.append(changePriceToCurrency(kamarPenghuniObject.penghuni.harga))
         }
         tableViewOutlet.dataSource = self
         

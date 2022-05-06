@@ -16,12 +16,13 @@
 		D4C9270F28192BAA0002CE24 /* MyKost.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4C9270D28192BAA0002CE24 /* MyKost.xcdatamodeld */; };
 		D4C9271128192BAB0002CE24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4C9271028192BAB0002CE24 /* Assets.xcassets */; };
 		D4C9271428192BAB0002CE24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4C9271228192BAB0002CE24 /* LaunchScreen.storyboard */; };
-		D4C927212819349D0002CE24 /* Penghuni.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C927202819349D0002CE24 /* Penghuni.swift */; };
-		D4C9272328198B2D0002CE24 /* Kamar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9272228198B2D0002CE24 /* Kamar.swift */; };
-		D4C9272528198CA80002CE24 /* PenghuniNull.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9272428198CA80002CE24 /* PenghuniNull.swift */; };
-		D4C9272728198D530002CE24 /* PenghuniAsli.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9272628198D530002CE24 /* PenghuniAsli.swift */; };
 		D4C927292819A0BD0002CE24 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C927282819A0BD0002CE24 /* DetailViewController.swift */; };
 		D4C9272B281A4C2A0002CE24 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9272A281A4C2A0002CE24 /* Extension.swift */; };
+		D4E873122825216B00FDE7E7 /* Penghuni+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E8730E2825216B00FDE7E7 /* Penghuni+CoreDataClass.swift */; };
+		D4E873132825216B00FDE7E7 /* Penghuni+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E8730F2825216B00FDE7E7 /* Penghuni+CoreDataProperties.swift */; };
+		D4E873142825216B00FDE7E7 /* Kamar+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E873102825216B00FDE7E7 /* Kamar+CoreDataClass.swift */; };
+		D4E873152825216B00FDE7E7 /* Kamar+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E873112825216B00FDE7E7 /* Kamar+CoreDataProperties.swift */; };
+		D4E87317282523A100FDE7E7 /* CoreDataDummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E87316282523A100FDE7E7 /* CoreDataDummyData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,12 +37,13 @@
 		D4C9271328192BAB0002CE24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4C9271528192BAB0002CE24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4C9271F28192E530002CE24 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
-		D4C927202819349D0002CE24 /* Penghuni.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Penghuni.swift; sourceTree = "<group>"; };
-		D4C9272228198B2D0002CE24 /* Kamar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kamar.swift; sourceTree = "<group>"; };
-		D4C9272428198CA80002CE24 /* PenghuniNull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenghuniNull.swift; sourceTree = "<group>"; };
-		D4C9272628198D530002CE24 /* PenghuniAsli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenghuniAsli.swift; sourceTree = "<group>"; };
 		D4C927282819A0BD0002CE24 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D4C9272A281A4C2A0002CE24 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		D4E8730E2825216B00FDE7E7 /* Penghuni+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Penghuni+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D4E8730F2825216B00FDE7E7 /* Penghuni+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Penghuni+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D4E873102825216B00FDE7E7 /* Kamar+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kamar+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D4E873112825216B00FDE7E7 /* Kamar+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kamar+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D4E87316282523A100FDE7E7 /* CoreDataDummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDummyData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,10 +93,11 @@
 		D4C9271B28192BE20002CE24 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D4C927202819349D0002CE24 /* Penghuni.swift */,
-				D4C9272228198B2D0002CE24 /* Kamar.swift */,
-				D4C9272428198CA80002CE24 /* PenghuniNull.swift */,
-				D4C9272628198D530002CE24 /* PenghuniAsli.swift */,
+				D4E8730E2825216B00FDE7E7 /* Penghuni+CoreDataClass.swift */,
+				D4E8730F2825216B00FDE7E7 /* Penghuni+CoreDataProperties.swift */,
+				D4E873102825216B00FDE7E7 /* Kamar+CoreDataClass.swift */,
+				D4E873112825216B00FDE7E7 /* Kamar+CoreDataProperties.swift */,
+				D4E87316282523A100FDE7E7 /* CoreDataDummyData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,16 +202,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4C927292819A0BD0002CE24 /* DetailViewController.swift in Sources */,
+				D4E873122825216B00FDE7E7 /* Penghuni+CoreDataClass.swift in Sources */,
 				D4C9270928192BAA0002CE24 /* ListViewController.swift in Sources */,
 				D4C9270528192BAA0002CE24 /* AppDelegate.swift in Sources */,
-				D4C9272328198B2D0002CE24 /* Kamar.swift in Sources */,
+				D4E873142825216B00FDE7E7 /* Kamar+CoreDataClass.swift in Sources */,
+				D4E873152825216B00FDE7E7 /* Kamar+CoreDataProperties.swift in Sources */,
 				D4C9270F28192BAA0002CE24 /* MyKost.xcdatamodeld in Sources */,
+				D4E87317282523A100FDE7E7 /* CoreDataDummyData.swift in Sources */,
 				D4C9272B281A4C2A0002CE24 /* Extension.swift in Sources */,
-				D4C9272728198D530002CE24 /* PenghuniAsli.swift in Sources */,
 				D4C9270728192BAA0002CE24 /* SceneDelegate.swift in Sources */,
-				D4C927212819349D0002CE24 /* Penghuni.swift in Sources */,
 				D441E40D281A9170003D4902 /* EditViewController.swift in Sources */,
-				D4C9272528198CA80002CE24 /* PenghuniNull.swift in Sources */,
+				D4E873132825216B00FDE7E7 /* Penghuni+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
