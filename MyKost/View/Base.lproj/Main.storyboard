@@ -200,35 +200,87 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rjH-oJ-7Lf">
                                         <rect key="frame" x="0.0" y="40.333333333333314" width="358" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neF-jR-rx6">
-                                <rect key="frame" x="74" y="560" width="76" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="KTP"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="On0-wn-4K5">
-                                <rect key="frame" x="157" y="623" width="76" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Foto"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55d-T0-eRt">
-                                <rect key="frame" x="150" y="698" width="90" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Pep-NE-bOD">
+                                <rect key="frame" x="14" y="473" width="362" height="117"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="63b-fO-YKh">
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="117"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Zy-ru-GlI">
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="78"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="TOZ-cR-GFM"/>
+                                                    <constraint firstAttribute="height" constant="78" id="mli-Kx-sYJ"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neF-jR-rx6">
+                                                <rect key="frame" x="29.666666666666668" y="86" width="50.666666666666657" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="KTP"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="3Zy-ru-GlI" firstAttribute="leading" secondItem="63b-fO-YKh" secondAttribute="leading" id="RYj-bG-5rQ"/>
+                                            <constraint firstItem="3Zy-ru-GlI" firstAttribute="top" secondItem="63b-fO-YKh" secondAttribute="top" id="lN8-XX-Bmz"/>
+                                            <constraint firstAttribute="trailing" secondItem="3Zy-ru-GlI" secondAttribute="trailing" id="xFt-2k-Ile"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Bpy-ts-3O0">
+                                        <rect key="frame" x="126" y="0.0" width="110" height="117"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NMt-6z-FbL">
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="78"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="XkL-4i-0pS"/>
+                                                    <constraint firstAttribute="height" constant="78" id="bJA-u4-xlh"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="On0-wn-4K5">
+                                                <rect key="frame" x="28.666666666666657" y="86" width="53" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Foto"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="NMt-6z-FbL" firstAttribute="top" secondItem="Bpy-ts-3O0" secondAttribute="top" id="WRC-6o-kyL"/>
+                                            <constraint firstAttribute="trailing" secondItem="NMt-6z-FbL" secondAttribute="trailing" id="kbJ-aA-TZI"/>
+                                            <constraint firstItem="NMt-6z-FbL" firstAttribute="leading" secondItem="Bpy-ts-3O0" secondAttribute="leading" id="ohr-MD-Jtp"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hgb-In-KC2">
+                                        <rect key="frame" x="252" y="0.0" width="110" height="117"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BSP-tN-zv0">
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="78"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="mM6-ID-lu6"/>
+                                                    <constraint firstAttribute="height" constant="78" id="rze-ER-uD9"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIM-9z-VjA">
+                                                <rect key="frame" x="0.0" y="86" width="110" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Kontrak"/>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="BSP-tN-zv0" secondAttribute="trailing" id="Gh8-Lm-pp0"/>
+                                            <constraint firstItem="BSP-tN-zv0" firstAttribute="leading" secondItem="hgb-In-KC2" secondAttribute="leading" id="JZc-4a-3tJ"/>
+                                            <constraint firstItem="BSP-tN-zv0" firstAttribute="top" secondItem="hgb-In-KC2" secondAttribute="top" id="n1P-cu-ida"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55d-T0-eRt">
+                                <rect key="frame" x="91" y="657" width="208" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Submit">
                                     <color key="baseBackgroundColor" systemColor="systemGreenColor"/>
                                 </buttonConfiguration>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIM-9z-VjA">
-                                <rect key="frame" x="236" y="560" width="90" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Kontrak"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="r5z-M5-Imf"/>
@@ -238,11 +290,17 @@
                             <constraint firstItem="4yc-ID-DN1" firstAttribute="leading" secondItem="r5z-M5-Imf" secondAttribute="leading" constant="16" id="2xh-DY-ZfK"/>
                             <constraint firstItem="Bgl-en-DBM" firstAttribute="top" secondItem="r5z-M5-Imf" secondAttribute="top" constant="80" id="9Vc-Tk-2Of"/>
                             <constraint firstItem="r5z-M5-Imf" firstAttribute="trailing" secondItem="4yc-ID-DN1" secondAttribute="trailing" constant="16" id="AY6-ZG-JoA"/>
+                            <constraint firstItem="r5z-M5-Imf" firstAttribute="trailing" secondItem="55d-T0-eRt" secondAttribute="trailing" constant="91" id="Ia4-vT-amE"/>
+                            <constraint firstItem="55d-T0-eRt" firstAttribute="leading" secondItem="r5z-M5-Imf" secondAttribute="leading" constant="91" id="VIw-vf-sRJ"/>
+                            <constraint firstItem="Pep-NE-bOD" firstAttribute="leading" secondItem="r5z-M5-Imf" secondAttribute="leading" constant="14" id="c0M-JI-6tK"/>
+                            <constraint firstItem="55d-T0-eRt" firstAttribute="top" secondItem="Pep-NE-bOD" secondAttribute="bottom" constant="67" id="cEV-y6-4re"/>
                             <constraint firstItem="bDv-4n-0MN" firstAttribute="leading" secondItem="r5z-M5-Imf" secondAttribute="leading" constant="16" id="cgS-sV-lJx"/>
                             <constraint firstItem="4yc-ID-DN1" firstAttribute="top" secondItem="bDv-4n-0MN" secondAttribute="bottom" constant="30" id="h3h-76-chH"/>
+                            <constraint firstItem="r5z-M5-Imf" firstAttribute="trailing" secondItem="Pep-NE-bOD" secondAttribute="trailing" constant="14" id="iK4-UG-lgf"/>
                             <constraint firstItem="r5z-M5-Imf" firstAttribute="trailing" secondItem="Bgl-en-DBM" secondAttribute="trailing" constant="16" id="jwN-vU-yaS"/>
                             <constraint firstItem="Bgl-en-DBM" firstAttribute="leading" secondItem="r5z-M5-Imf" secondAttribute="leading" constant="16" id="kPz-Mr-DWd"/>
                             <constraint firstItem="r5z-M5-Imf" firstAttribute="trailing" secondItem="bDv-4n-0MN" secondAttribute="trailing" constant="16" id="qZN-de-x9M"/>
+                            <constraint firstItem="Pep-NE-bOD" firstAttribute="top" secondItem="4yc-ID-DN1" secondAttribute="bottom" constant="64" id="tyn-fJ-8Ig"/>
                         </constraints>
                     </view>
                     <connections>
@@ -250,7 +308,10 @@
                         <outlet property="inputFotoOutlet" destination="On0-wn-4K5" id="43C-df-Hrm"/>
                         <outlet property="inputKTPOutlet" destination="neF-jR-rx6" id="LHY-g3-0W9"/>
                         <outlet property="inputKontrakOutlet" destination="sIM-9z-VjA" id="Hsc-hX-Km9"/>
+                        <outlet property="kontrakImageOutlet" destination="BSP-tN-zv0" id="noX-Pl-ThX"/>
+                        <outlet property="ktpImageOutlet" destination="3Zy-ru-GlI" id="2Kv-fz-bDm"/>
                         <outlet property="nameTextFieldOutlet" destination="xXY-36-Tm7" id="HZn-80-yRt"/>
+                        <outlet property="profileImageOutlet" destination="NMt-6z-FbL" id="2cZ-0v-So1"/>
                         <outlet property="submitOutlet" destination="55d-T0-eRt" id="eOH-g4-B83"/>
                         <outlet property="tanggalMasukTextFieldOutlet" destination="oGC-YP-7fd" id="HNz-Ee-PaH"/>
                     </connections>

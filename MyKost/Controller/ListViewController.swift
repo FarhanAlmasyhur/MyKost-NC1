@@ -17,19 +17,14 @@ class ListViewController: UIViewController {
     
     var listKamarBawah: [Kamar] = []
     var listKamarAtas: [Kamar] = []
-
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         // Check dummy data, if there is none, create it
         if UserDefaults.standard.bool(forKey: "dummyDataAdded") == false {
             saveDummyData()
         }
-        
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
         
         // read from database
         fetchData()

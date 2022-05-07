@@ -20,7 +20,12 @@ class EditViewController: UIViewController {
     @IBOutlet weak var inputFotoOutlet: UIButton!
     @IBOutlet weak var submitOutlet: UIButton!
     
+    @IBOutlet weak var ktpImageOutlet: UIImageView!
+    @IBOutlet weak var profileImageOutlet: UIImageView!
+    @IBOutlet weak var kontrakImageOutlet: UIImageView!
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let imagePicker = UIImagePickerController()
     
     var checkButton = ""
     var kamar: Kamar?
@@ -31,19 +36,29 @@ class EditViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(self.backToDetail(_:)))
+//        imagePicker.delegate = self
+        
         inputKTPOutlet.addTarget(self, action: #selector(inputImageAction(_:)), for: .touchDown)
         inputKontrakOutlet.addTarget(self, action: #selector(inputImageAction(_:)), for: .touchDown)
         inputFotoOutlet.addTarget(self, action: #selector(inputImageAction(_:)), for: .touchDown)
         submitOutlet.addTarget(self, action: #selector(submitAction(_:)), for: .touchDown)
+        self.hideKeyboardWhenTappedAround()
         
         if let kamarPenghuni = kamar {
             nameTextFieldOutlet.text = kamarPenghuni.penghuni?.nama!
             tanggalMasukTextFieldOutlet.text = dateToString((kamarPenghuni.penghuni?.tanggalMasuk!)!)
             hargaTextFieldOutlet.text = String(kamarPenghuni.penghuni?.harga ?? 0)
-            newImageKTP = binaryDataToImage((kamarPenghuni.penghuni?.fotoKTP)!)
-            newImageKontrak = binaryDataToImage((kamarPenghuni.penghuni?.fotoKontrak)!)
-            newImageProfile = binaryDataToImage((kamarPenghuni.penghuni?.fotoProfil)!)
+            
+            newImageKTP = UIImage(data: (kamarPenghuni.penghuni?.fotoKTP)!)
+            newImageKontrak = UIImage(data: (kamarPenghuni.penghuni?.fotoKontrak)!)
+            newImageProfile = UIImage(data: (kamarPenghuni.penghuni?.fotoProfil)!)
+            
+            ktpImageOutlet.image = UIImage(data: (kamarPenghuni.penghuni?.fotoKTP)!)
+            profileImageOutlet.image = UIImage(data: (kamarPenghuni.penghuni?.fotoProfil)!)
+            kontrakImageOutlet.image = UIImage(data: (kamarPenghuni.penghuni?.fotoKontrak)!)
+            
         }
         
         // Change Tanggal Outlet to DateInput
@@ -80,11 +95,11 @@ class EditViewController: UIViewController {
         let photoVC = PHPickerViewController(configuration: photoConfig)
         photoVC.delegate = self
         present(photoVC, animated: true)
+        changeImage()
     }
     
     @objc func submitAction(_ sender: UIButton){
         guard let kamar = kamar else { return }
-
         
         let newPenghuni = Penghuni(context: context)
         newPenghuni.kamar = kamar
@@ -96,7 +111,6 @@ class EditViewController: UIViewController {
         }
         
         newPenghuni.tanggalMasuk = stringToDate(tanggalMasukTextFieldOutlet.text ?? dateToString(Date.now))
-        
         newPenghuni.fotoKTP = newImageKTP?.jpegData(compressionQuality: 0.15)
         newPenghuni.fotoKontrak = newImageKontrak?.jpegData(compressionQuality: 0.15)
         newPenghuni.fotoProfil = newImageProfile?.jpegData(compressionQuality: 0.15)
@@ -104,18 +118,15 @@ class EditViewController: UIViewController {
         saveToCoreData(newPenghuni)
         
         self.navigationController?.popToRootViewController(animated: true)
-          
-        
     }
     
-    
-    
-    func binaryDataToImage(_ imageData: Data) -> UIImage {
-        guard let encodedData = Data(base64Encoded: imageData) else { return UIImage(named: "defaultProfileImage")!}
-        return UIImage(data: encodedData)!
+    func changeImage(){
+        DispatchQueue.main.async {
+            self.ktpImageOutlet.image = self.newImageKTP
+            self.profileImageOutlet.image = self.newImageProfile
+            self.kontrakImageOutlet.image = self.newImageKontrak
+        }
     }
-    
-    
     
     func dateToString(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
@@ -152,9 +163,8 @@ class EditViewController: UIViewController {
         }
     }
     
-    
-    
 }
+
 
 
 extension EditViewController: PHPickerViewControllerDelegate {
@@ -170,17 +180,16 @@ extension EditViewController: PHPickerViewControllerDelegate {
                 if let image = image {
                     if self.checkButton == "KTP"{
                         self.newImageKTP = image as? UIImage ?? UIImage(systemName: "person.fill")!
+                        self.changeImage()
                     } else if self.checkButton == "Kontrak" {
                         self.newImageKontrak = image as? UIImage ?? UIImage(systemName: "person.fill")!
-                    } else {
+                        self.changeImage()
+                    } else if self.checkButton == "Foto" {
                         self.newImageProfile = image as? UIImage ?? UIImage(systemName: "person.fill")!
-                        
+                        self.changeImage()
                     }
                 }
             }
         }
-        
     }
-    
-    
 }

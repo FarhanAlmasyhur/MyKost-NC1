@@ -13,6 +13,16 @@ extension UIImageView {
         self.layer.cornerRadius = 8.0
         self.layer.cornerCurve = .continuous
     }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
     
-   
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

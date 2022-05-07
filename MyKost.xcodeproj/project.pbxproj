@@ -23,6 +23,8 @@
 		D4E873142825216B00FDE7E7 /* Kamar+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E873102825216B00FDE7E7 /* Kamar+CoreDataClass.swift */; };
 		D4E873152825216B00FDE7E7 /* Kamar+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E873112825216B00FDE7E7 /* Kamar+CoreDataProperties.swift */; };
 		D4E87317282523A100FDE7E7 /* CoreDataDummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E87316282523A100FDE7E7 /* CoreDataDummyData.swift */; };
+		D4E87319282687BD00FDE7E7 /* ImageViewer.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E87318282687BD00FDE7E7 /* ImageViewer.xib */; };
+		D4E8731B282687E900FDE7E7 /* ImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E8731A282687E900FDE7E7 /* ImageViewer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		D4E873102825216B00FDE7E7 /* Kamar+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kamar+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D4E873112825216B00FDE7E7 /* Kamar+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kamar+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D4E87316282523A100FDE7E7 /* CoreDataDummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDummyData.swift; sourceTree = "<group>"; };
+		D4E87318282687BD00FDE7E7 /* ImageViewer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ImageViewer.xib; path = MyKost/ImageViewer.xib; sourceTree = SOURCE_ROOT; };
+		D4E8731A282687E900FDE7E7 /* ImageViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 		D4C9271C28192C200002CE24 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D4E87318282687BD00FDE7E7 /* ImageViewer.xib */,
 				D4C9270A28192BAA0002CE24 /* Main.storyboard */,
 				D4C9271228192BAB0002CE24 /* LaunchScreen.storyboard */,
 			);
@@ -117,6 +122,7 @@
 				D4C9270828192BAA0002CE24 /* ListViewController.swift */,
 				D4C927282819A0BD0002CE24 /* DetailViewController.swift */,
 				D441E40C281A9170003D4902 /* EditViewController.swift */,
+				D4E8731A282687E900FDE7E7 /* ImageViewer.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -189,6 +195,7 @@
 			files = (
 				D4C9271428192BAB0002CE24 /* LaunchScreen.storyboard in Resources */,
 				D441E409281A85C5003D4902 /* SF-Pro.ttf in Resources */,
+				D4E87319282687BD00FDE7E7 /* ImageViewer.xib in Resources */,
 				D4C9271128192BAB0002CE24 /* Assets.xcassets in Resources */,
 				D4C9270C28192BAA0002CE24 /* Main.storyboard in Resources */,
 			);
@@ -211,6 +218,7 @@
 				D4E87317282523A100FDE7E7 /* CoreDataDummyData.swift in Sources */,
 				D4C9272B281A4C2A0002CE24 /* Extension.swift in Sources */,
 				D4C9270728192BAA0002CE24 /* SceneDelegate.swift in Sources */,
+				D4E8731B282687E900FDE7E7 /* ImageViewer.swift in Sources */,
 				D441E40D281A9170003D4902 /* EditViewController.swift in Sources */,
 				D4E873132825216B00FDE7E7 /* Penghuni+CoreDataProperties.swift in Sources */,
 			);
