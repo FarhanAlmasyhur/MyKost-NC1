@@ -48,6 +48,12 @@ class ListViewController: UIViewController {
         
         tableViewOutlet.dataSource = self
         tableViewOutlet.delegate = self
+        tableViewOutlet.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        fetchData()
+        tableViewOutlet.reloadData()
     }
     
     func fetchData(){
@@ -75,7 +81,11 @@ class ListViewController: UIViewController {
 
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listKamarBawah.count
+        if section == 0 {
+            return listKamarBawah.count
+        } else {
+            return listKamarAtas.count
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

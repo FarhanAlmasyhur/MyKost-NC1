@@ -23,18 +23,16 @@ class DetailViewController: UIViewController {
         imageOutlet.roundedCorners()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editDetail))
         if let kamarPenghuniObject = kamarPenghuni {
-            imageOutlet.image = binaryDataToImage(imageData: (kamarPenghuniObject.penghuni?.fotoProfil)!)
+            
+            imageOutlet.image = UIImage(data: (kamarPenghuniObject.penghuni?.fotoProfil!)!)
+            
             detailArray.append(kamarPenghuniObject.penghuni!.nama!)
             detailArray.append(formatDate(kamarPenghuniObject.penghuni!.tanggalMasuk!))
             detailArray.append(changePriceToCurrency(kamarPenghuniObject.penghuni!.harga))
         }
         tableViewOutlet.dataSource = self
     }
-    
-    func binaryDataToImage(imageData: Data) -> UIImage {
-        guard let encodedData = Data(base64Encoded: imageData) else { return UIImage(systemName: "person.crop.rectangle")!}
-        return UIImage(data: encodedData)!
-    }
+
                                
     func changePriceToCurrency(_ price: Int32) -> String {
         let formatter = NumberFormatter()

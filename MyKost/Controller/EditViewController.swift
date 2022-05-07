@@ -7,6 +7,7 @@
 
 import UIKit
 import PhotosUI
+import CoreData
 
 class EditViewController: UIViewController {
     
@@ -19,26 +20,14 @@ class EditViewController: UIViewController {
     @IBOutlet weak var inputFotoOutlet: UIButton!
     @IBOutlet weak var submitOutlet: UIButton!
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var checkButton = ""
     var kamar: Kamar?
     
-    var newImageKTP = UIImage()
-    var newImageKontrak = UIImage()
-    var newImageProfile = UIImage()
-    var newName = String()
-    var newTanggalMasuk = Date()
-    var newHarga = Int32()
-    
-    override func viewWillAppear(_ animated: Bool) {
-        guard let kamarLama = kamar else { return }
-//        newImageKTP = kamarLama.penghuni.fotoKTP
-//        newImageKontrak = kamarLama.penghuni.fotoKontrak
-//        newImageProfile = kamarLama.penghuni.fotoProfil
-//        newName = kamarLama.penghuni.nama
-//        newTanggalMasuk = kamarLama.penghuni.tanggalMasuk
-//        newHarga = kamarLama.penghuni.harga
-    }
-    
+    var newImageKTP: UIImage?
+    var newImageKontrak: UIImage?
+    var newImageProfile: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,11 +35,15 @@ class EditViewController: UIViewController {
         inputKTPOutlet.addTarget(self, action: #selector(inputImageAction(_:)), for: .touchDown)
         inputKontrakOutlet.addTarget(self, action: #selector(inputImageAction(_:)), for: .touchDown)
         inputFotoOutlet.addTarget(self, action: #selector(inputImageAction(_:)), for: .touchDown)
+        submitOutlet.addTarget(self, action: #selector(submitAction(_:)), for: .touchDown)
         
         if let kamarPenghuni = kamar {
-//            nameTextFieldOutlet.text = kamarPenghuni.penghuni.nama
-//            tanggalMasukTextFieldOutlet.text = dateToString(kamarPenghuni.penghuni.tanggalMasuk)
-//            hargaTextFieldOutlet.text = String(kamarPenghuni.penghuni.harga)
+            nameTextFieldOutlet.text = kamarPenghuni.penghuni?.nama!
+            tanggalMasukTextFieldOutlet.text = dateToString((kamarPenghuni.penghuni?.tanggalMasuk!)!)
+            hargaTextFieldOutlet.text = String(kamarPenghuni.penghuni?.harga ?? 0)
+            newImageKTP = binaryDataToImage((kamarPenghuni.penghuni?.fotoKTP)!)
+            newImageKontrak = binaryDataToImage((kamarPenghuni.penghuni?.fotoKontrak)!)
+            newImageProfile = binaryDataToImage((kamarPenghuni.penghuni?.fotoProfil)!)
         }
         
         // Change Tanggal Outlet to DateInput
@@ -77,11 +70,6 @@ class EditViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func dateToString(_ date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy"
-        return dateFormatter.string(from: date)
-    }
     
     @objc func inputImageAction(_ sender: UIButton){
         guard let buttonPressed = sender.titleLabel else { return }
@@ -95,15 +83,75 @@ class EditViewController: UIViewController {
     }
     
     @objc func submitAction(_ sender: UIButton){
+        guard let kamar = kamar else { return }
+
         
-        newName = nameTextFieldOutlet.text ?? ""
-        newHarga = Int32(hargaTextFieldOutlet.text ?? "0") ?? 0
-//
-//        let penghuni = PenghuniAsli(nama: newName, tanggalMasuk: newTanggalMasuk, harga: newHarga, fotoProfil: newImageProfile, fotoKTP: newImageKTP, fotoKontrak: newImageKontrak)
-//
-//        kamar?.penghuni = penghuni
+        let newPenghuni = Penghuni(context: context)
+        newPenghuni.kamar = kamar
+        newPenghuni.nama = nameTextFieldOutlet.text
+        do {
+            try newPenghuni.harga = Int32(hargaTextFieldOutlet.text ?? "0", format: .number)
+        } catch {
+            print("error changing harga to int")
+        }
+        
+        newPenghuni.tanggalMasuk = stringToDate(tanggalMasukTextFieldOutlet.text ?? dateToString(Date.now))
+        
+        newPenghuni.fotoKTP = newImageKTP?.jpegData(compressionQuality: 0.15)
+        newPenghuni.fotoKontrak = newImageKontrak?.jpegData(compressionQuality: 0.15)
+        newPenghuni.fotoProfil = newImageProfile?.jpegData(compressionQuality: 0.15)
+        
+        saveToCoreData(newPenghuni)
+        
+        self.navigationController?.popToRootViewController(animated: true)
+          
         
     }
+    
+    
+    
+    func binaryDataToImage(_ imageData: Data) -> UIImage {
+        guard let encodedData = Data(base64Encoded: imageData) else { return UIImage(named: "defaultProfileImage")!}
+        return UIImage(data: encodedData)!
+    }
+    
+    
+    
+    func dateToString(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        return dateFormatter.string(from: date)
+    }
+    
+    func stringToDate(_ string: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        return dateFormatter.date(from: string)!
+    }
+    
+    func saveToCoreData(_ newPenghuni: Penghuni) {
+        let kamarPenghuni: Kamar!
+
+        let fetchPenghuni: NSFetchRequest<Kamar> = Kamar.fetchRequest()
+        fetchPenghuni.predicate = NSPredicate(format: "noKamar == \(newPenghuni.kamar?.noKamar ?? 0)")
+
+        let results = try? context.fetch(fetchPenghuni)
+
+        if results?.count == 0 {
+            kamarPenghuni = Kamar(context: context)
+         } else {
+            kamarPenghuni = results?.first
+         }
+        
+        kamarPenghuni.penghuni = newPenghuni
+        
+        do {
+            try context.save()
+        } catch {
+            print("error updating data")
+        }
+    }
+    
     
     
 }

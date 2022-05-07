@@ -14,7 +14,7 @@ func saveDummyData(){
     let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     let context:NSManagedObjectContext = appDel.persistentContainer.viewContext
     
-    for i in 0...15{
+    for i in 0...13{
         dummyData(noKamar: Int16(i))
     }
     

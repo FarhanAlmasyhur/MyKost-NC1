@@ -251,6 +251,7 @@
                         <outlet property="inputKTPOutlet" destination="neF-jR-rx6" id="LHY-g3-0W9"/>
                         <outlet property="inputKontrakOutlet" destination="sIM-9z-VjA" id="Hsc-hX-Km9"/>
                         <outlet property="nameTextFieldOutlet" destination="xXY-36-Tm7" id="HZn-80-yRt"/>
+                        <outlet property="submitOutlet" destination="55d-T0-eRt" id="eOH-g4-B83"/>
                         <outlet property="tanggalMasukTextFieldOutlet" destination="oGC-YP-7fd" id="HNz-Ee-PaH"/>
                     </connections>
                 </viewController>
