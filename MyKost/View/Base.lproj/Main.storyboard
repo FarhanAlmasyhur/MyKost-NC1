@@ -141,6 +141,8 @@
                     </view>
                     <connections>
                         <outlet property="imageOutlet" destination="3x4-gW-lRe" id="HlI-6l-fTS"/>
+                        <outlet property="kontrakButtonOutlet" destination="JdN-0R-MsQ" id="x6S-Ta-E8m"/>
+                        <outlet property="ktpButtonOutlet" destination="RCo-YU-7Yy" id="7yJ-rR-aIo"/>
                         <outlet property="tableViewOutlet" destination="5VX-6E-mUN" id="EL0-yM-6xe"/>
                     </connections>
                 </viewController>

@@ -10,6 +10,9 @@ import UIKit
 
 class ImageViewer: UIView {
     
+    @IBOutlet weak var closeButtonOutlet: UIButton!
+    @IBOutlet weak var imageViewOutlet: UIImageView!
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -27,7 +30,7 @@ class ImageViewer: UIView {
     
     func loadXib() -> UIView {
         let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: "imageViewer", bundle: bundle)
+        let nib = UINib(nibName: "ImageViewer", bundle: bundle)
         let view = nib.instantiate(withOwner: self).first as? UIView
         return view!
     }

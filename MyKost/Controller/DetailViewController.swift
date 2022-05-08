@@ -10,13 +10,17 @@ import UIKit
 class DetailViewController: UIViewController {
     
     
-    var kamarPenghuni: Kamar?
+    
     
     @IBOutlet weak var imageOutlet: UIImageView!
     @IBOutlet weak var tableViewOutlet: UITableView!
+    @IBOutlet weak var ktpButtonOutlet: UIButton!
+    @IBOutlet weak var kontrakButtonOutlet: UIButton!
     
     let titleArray = ["Nama", "Tanggal Masuk", "Harga"]
     var detailArray: [String] = []
+    var kamarPenghuni: Kamar?
+    var imageViewer: ImageViewer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +35,27 @@ class DetailViewController: UIViewController {
             detailArray.append(changePriceToCurrency(kamarPenghuniObject.penghuni!.harga))
         }
         tableViewOutlet.dataSource = self
+        
+        ktpButtonOutlet.addTarget(self, action: #selector(imageButtonAction(_:)), for: .touchDown)
+        kontrakButtonOutlet.addTarget(self, action: #selector(imageButtonAction(_:)), for: .touchDown)
+    }
+    
+    @objc func imageButtonAction(_ sender: UIButton){
+        self.imageViewer = ImageViewer(frame: self.view.frame)
+        self.imageViewer.closeButtonOutlet.addTarget(self, action: #selector(closeButtonAction), for: .touchDown)
+        
+        guard let buttonTitle = sender.titleLabel else { return }
+        if buttonTitle.text == "KTP" {
+            self.imageViewer.imageViewOutlet.image = UIImage(data: (kamarPenghuni?.penghuni?.fotoKTP)!)
+        } else {
+            self.imageViewer.imageViewOutlet.image = UIImage(data: (kamarPenghuni?.penghuni?.fotoKontrak)!)
+        }
+        
+        self.view.addSubview(imageViewer)
+    }
+    
+    @objc func closeButtonAction(){
+        self.imageViewer.removeFromSuperview()
     }
 
                                
