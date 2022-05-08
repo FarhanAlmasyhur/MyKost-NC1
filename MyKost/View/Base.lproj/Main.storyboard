@@ -140,13 +140,57 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="blurViewOutlet" destination="qUx-Lz-sL4" id="VwJ-65-M2Q"/>
+                        <outlet property="closeButtonOutlet" destination="6my-8b-685" id="7cc-8p-BCt"/>
+                        <outlet property="detailImageOutlet" destination="kI5-qB-IAm" id="Xej-5B-KAl"/>
                         <outlet property="imageOutlet" destination="3x4-gW-lRe" id="HlI-6l-fTS"/>
                         <outlet property="kontrakButtonOutlet" destination="JdN-0R-MsQ" id="x6S-Ta-E8m"/>
                         <outlet property="ktpButtonOutlet" destination="RCo-YU-7Yy" id="7yJ-rR-aIo"/>
+                        <outlet property="popUpImage" destination="2Ho-De-WOb" id="YQk-dH-3qY"/>
                         <outlet property="tableViewOutlet" destination="5VX-6E-mUN" id="EL0-yM-6xe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="snD-ba-g15" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="2Ho-De-WOb">
+                    <rect key="frame" x="0.0" y="0.0" width="314" height="335"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kI5-qB-IAm">
+                            <rect key="frame" x="37" y="41" width="240" height="252"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="252" id="P4v-K4-czr"/>
+                                <constraint firstAttribute="width" constant="240" id="lAt-GP-YhB"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6my-8b-685">
+                            <rect key="frame" x="274" y="0.0" width="40" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="53N-k8-KvT"/>
+                                <constraint firstAttribute="width" constant="40" id="iQn-Lq-jF8"/>
+                            </constraints>
+                            <buttonConfiguration key="configuration" style="plain"/>
+                        </button>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="SAw-Bz-7hx"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="kI5-qB-IAm" firstAttribute="top" secondItem="2Ho-De-WOb" secondAttribute="top" constant="41" id="2TV-3W-MTn"/>
+                        <constraint firstItem="6my-8b-685" firstAttribute="top" secondItem="2Ho-De-WOb" secondAttribute="top" id="DJk-f2-zdJ"/>
+                        <constraint firstAttribute="trailing" secondItem="6my-8b-685" secondAttribute="trailing" id="Fpz-6L-aQR"/>
+                        <constraint firstItem="SAw-Bz-7hx" firstAttribute="bottom" secondItem="kI5-qB-IAm" secondAttribute="bottom" constant="42" id="Va1-8V-bS6"/>
+                        <constraint firstItem="SAw-Bz-7hx" firstAttribute="trailing" secondItem="kI5-qB-IAm" secondAttribute="trailing" constant="37" id="mjb-Fv-ReJ"/>
+                        <constraint firstItem="kI5-qB-IAm" firstAttribute="leading" secondItem="SAw-Bz-7hx" secondAttribute="leading" constant="37" id="pe2-3c-xdx"/>
+                    </constraints>
+                </view>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" id="qUx-Lz-sL4">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="okk-Nr-poL">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="regular"/>
+                </visualEffectView>
             </objects>
             <point key="canvasLocation" x="1730.7692307692307" y="96.682464454976298"/>
         </scene>

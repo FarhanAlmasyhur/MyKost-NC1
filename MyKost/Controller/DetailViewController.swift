@@ -11,16 +11,23 @@ class DetailViewController: UIViewController {
     
     
     
+
     
     @IBOutlet weak var imageOutlet: UIImageView!
     @IBOutlet weak var tableViewOutlet: UITableView!
     @IBOutlet weak var ktpButtonOutlet: UIButton!
     @IBOutlet weak var kontrakButtonOutlet: UIButton!
     
+    @IBOutlet weak var closeButtonOutlet: UIButton!
+    @IBOutlet weak var detailImageOutlet: UIImageView!
+    
+    @IBOutlet weak var blurViewOutlet: UIVisualEffectView!
+    @IBOutlet var popUpImage: UIView!
+    
+    
     let titleArray = ["Nama", "Tanggal Masuk", "Harga"]
     var detailArray: [String] = []
     var kamarPenghuni: Kamar?
-    var imageViewer: ImageViewer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,24 +45,49 @@ class DetailViewController: UIViewController {
         
         ktpButtonOutlet.addTarget(self, action: #selector(imageButtonAction(_:)), for: .touchDown)
         kontrakButtonOutlet.addTarget(self, action: #selector(imageButtonAction(_:)), for: .touchDown)
+        closeButtonOutlet.addTarget(self, action: #selector(closeButtonAction), for: .touchDown)
+        
+        blurViewOutlet.bounds = self.view.bounds
+        popUpImage.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.9, height: self.view.bounds.height * 0.4)
+        
+        
     }
     
     @objc func imageButtonAction(_ sender: UIButton){
-        self.imageViewer = ImageViewer(frame: self.view.frame)
-        self.imageViewer.closeButtonOutlet.addTarget(self, action: #selector(closeButtonAction), for: .touchDown)
-        
-        guard let buttonTitle = sender.titleLabel else { return }
-        if buttonTitle.text == "KTP" {
-            self.imageViewer.imageViewOutlet.image = UIImage(data: (kamarPenghuni?.penghuni?.fotoKTP)!)
+        if sender.titleLabel?.text == "KTP" {
+            detailImageOutlet.image = UIImage(data: (kamarPenghuni?.penghuni?.fotoKTP)!)
         } else {
-            self.imageViewer.imageViewOutlet.image = UIImage(data: (kamarPenghuni?.penghuni?.fotoKontrak)!)
+            detailImageOutlet.image = UIImage(data: (kamarPenghuni?.penghuni?.fotoKontrak)!)
         }
-        
-        self.view.addSubview(imageViewer)
+        animatePopUp(desiredView: blurViewOutlet)
+        animatePopUp(desiredView: popUpImage)
     }
     
     @objc func closeButtonAction(){
-        self.imageViewer.removeFromSuperview()
+        animateClose(desiredView: popUpImage)
+        animateClose(desiredView: blurViewOutlet)
+    }
+    
+    func animatePopUp(desiredView: UIView){
+        let bg = self.view!
+        bg.addSubview(desiredView)
+        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desiredView.alpha = 0
+        desiredView.center = bg.center
+        UIView.animate(withDuration: 0.3, animations: {
+            desiredView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            desiredView.alpha = 1
+        })
+    }
+    
+    func animateClose(desiredView: UIView){
+        UIView.animate(withDuration: 0.3, animations: {
+            desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            desiredView.alpha = 0
+            
+        }, completion: { _ in
+            desiredView.removeFromSuperview()
+        })
     }
 
                                
